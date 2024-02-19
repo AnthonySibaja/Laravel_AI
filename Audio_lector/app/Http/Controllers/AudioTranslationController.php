@@ -22,13 +22,13 @@ class AudioTranslationController extends Controller
         $filePath = $request->file('file')->getRealPath();
         Log::info('Ruta del archivo:', ['path' => $filePath]);
         
-        $openaiApiKey = env('OPENAI_API_KEY');
-        $apiUrl = 'https://api.openai.com/v1/audio/transcriptions';
+        
         
         $client = new Client();
-        $response = $client->post($apiUrl, [
+        $response = $client->post('https://api.openai.com/v1/audio/transcriptions', [
             'headers' => [
-                'Authorization' => 'Bearer ' . $openaiApiKey,
+                'Authorization' => 'Bearer ' . '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'
+                ,
             ],
             'multipart' => [
                 [
